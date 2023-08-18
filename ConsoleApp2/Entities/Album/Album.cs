@@ -15,10 +15,7 @@ namespace ConsoleApp2.Entities
         public int Year { get; set; }
         public Genre Genre { get; set; }
         public int GenreId { get; set; }
+        public double Rating { get; set; }
         public ICollection<Track> Tracks { get; set; }
     }
-
-
 }
-
-

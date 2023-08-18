@@ -1,6 +1,6 @@
 ﻿using ConsoleApp2.Entities;
 using ConsoleApp2.Entities.NewFolder;
-using ConsoleApp2.Entities.Playlist;
+using ConsoleApp2.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
