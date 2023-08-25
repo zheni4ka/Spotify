@@ -11,6 +11,5 @@ namespace ConsoleApp2.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Album> Albums { get; set; }
-
     }
 }

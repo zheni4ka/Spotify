@@ -1,4 +1,5 @@
 ﻿using ConsoleApp2.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,14 @@ namespace ConsoleApp2.TasksLib
     {
         SpotifyDbContext spotifyDb = new();
 
-        public void GetTracks(string NameofAlbum) //Get Tracks which have more count of listening than the average count of listening in album
+        
+        public void GetTracks(string NameofAlbum) 
         {
             var tmp = spotifyDb.Albums.Where(x => x.Name == NameofAlbum).First();
             tmp.Tracks.Where(x => x.CountOfListening > tmp.Tracks.Average(x => x.CountOfListening));
         }
 
-        public void GetTop3AlbumsAndTracks(string ArtistName) //Get
+        public void GetTop3AlbumsAndTracks(string ArtistName) 
         {
             var top3albums = spotifyDb.Albums.Where(x => x.Name == ArtistName).OrderByDescending(x => x.Rating).Take(3).ToList();
             var top3tracks = spotifyDb.Tracks.Where(x => x.Name == ArtistName).OrderByDescending(x => x.Rating).Take(3).ToList();

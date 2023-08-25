@@ -11,8 +11,10 @@ namespace ConsoleApp2.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; } = "";
         public int Year { get; set; }
+        public int ArtistId { get; set; }
+        public Artist Artist { get; set; }
         public Genre Genre { get; set; }
         public int GenreId { get; set; }
         public double Rating { get; set; }
