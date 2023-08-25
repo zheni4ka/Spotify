@@ -10,6 +10,6 @@ namespace ConsoleApp2.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Playlist> Playlists { get; set; }
+        public ICollection<Playlist> Playlists { get; set; } = new HashSet<Playlist>();
     }
 }

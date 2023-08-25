@@ -29,33 +29,44 @@ namespace ConsoleApp2.Data
             optionsBuilder.UseSqlServer(conn);
         }
 
-        public void AddTracksIntoPlaylist(Playlist playlist)
+        public void AddTracksIntoPlaylist()
         {
-            int choice = 0;
+            int Track_choice, Playlist_Choice;
+
+            foreach(var i in Playlists) 
+                Console.WriteLine(i.Id + " ----- " + i.Name);
+            
+            Console.Write("Choose playlist you wanna add tracks into\n>>> ");
+            Playlist_Choice = Convert.ToInt32(Console.ReadLine());
+
             do
             {
+
                 foreach(var item in Tracks) 
                 {
-                    Console.WriteLine(item.Id + " " + item.Name);
+                    Console.WriteLine(item.Id + " ----- " + item.Name);
                 }
+                
                 Console.Write("Enter a id of track you wanna add (type 0 to stop) >>> ");
-                choice = Convert.ToInt32(Console.ReadLine());
-                var tmp = Tracks.Where(x => x.Id == choice).First();
-                playlist.Tracks.Add(Tracks.Where(x => x.Id == choice).First());
+                Track_choice = Convert.ToInt32(Console.ReadLine());
+
+                Playlists.Where(x => x.Id == Playlist_Choice).First().Tracks.Add(Tracks.Where(x => x.Id == Track_choice).First());
+                
                 Console.Clear();
-            }while(choice > 0);
+
+            }while(Track_choice != 0);
         }
 
         public void CreatePlaylist()
         {
             string name_;
 
-            Console.WriteLine("Enter a name of your new playlist");
+            Console.WriteLine("Enter a name of your new playlist\n>>> ");
             name_ = Console.ReadLine();
             
             Console.Clear();
 
-            foreach(var i in Categories) Console.WriteLine(i.Name);
+            foreach(var i in Categories) Console.WriteLine(i.Id + "-----" + i.Name);
             Console.Write("Choose a category to your playlist >>> ");
             int id = Convert.ToInt32(Console.ReadLine());
 

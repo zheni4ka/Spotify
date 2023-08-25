@@ -17,6 +17,6 @@ namespace ConsoleApp2.Entities.NewFolder
         public double Rating { get; set; }
         public int CountOfListening { get; set; }
         public string? SongText { get; set; }
-        public ICollection<Playlist> Playlists { get; set; }
+        public ICollection<Playlist> Playlists { get; set; } = new HashSet<Playlist>();
     }
 }

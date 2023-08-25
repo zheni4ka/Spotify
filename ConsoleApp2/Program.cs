@@ -1,11 +1,15 @@
-﻿using ConsoleApp2.Data;
+﻿using Azure.Core.GeoJson;
+using ConsoleApp2.Data;
 using ConsoleApp2.Entities;
+using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
         SpotifyDbContext db = new SpotifyDbContext();
-        db.AddTracksIntoPlaylist(db.Playlists.Where(x => x.Name == "1234").First());
+        //foreach (var i in db.Playlists.Include(x => x.Category))
+        //    Console.WriteLine(i.Name + " " + i.Category.Name);
+
     }
 }
